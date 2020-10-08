@@ -1,7 +1,7 @@
 <template>
   <div :class="[todo.status ? 'complete' : '']">
     <span
-      @click="editTodo({url:`/todo/edit/${todo.id}`,todo: {
+      @click="editTodo({url:`/api/edit/${todo.id}`,todo: {
         status: !todo.status
       }})"
       :class="[
@@ -12,7 +12,7 @@
     {{ todo.text }}
     <span
       class="del el-icon-error"
-      @click="removeTodo(`/todo/delete/${todo.id}`)"
+      @click="removeTodo(`/api/delete/${todo.id}`)"
     ></span>
   </div>
 </template>

@@ -47,7 +47,7 @@ export default {
   // 创建完，这个时候，data已经初始化成功
   created(){
     console.log('axios22', this.$axios)
-    this.fetchTodos('/todo/list');
+    this.fetchTodos('/api/list');
   },
   components: {
     TodoList,
@@ -59,7 +59,7 @@ export default {
   methods: {
     ...mapActions("todo", ["addTodo", "changeCond","fetchTodos"]),
     add() {
-      var url = "/todo/add";
+      var url = "/api/add";
       const text = this.value;
       this.value = "";
       this.addTodo({text, url});

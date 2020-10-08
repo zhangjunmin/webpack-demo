@@ -25,15 +25,17 @@ module.exports = {
             warnings: true,
             errors: true
         },
+        // 主要看最终的访问路径 tarhet + 重新的 hash
+        // 如 服务器端 http://127.0.0.1:3000/todo/.... 就要凑成这样的。
         proxy: {
-            '/todo/*': {
+            '/api': {
               target: 'http://127.0.0.1:3000', // 目标接口的域名
               // secure: true,  // https 的时候 使用该参数
               changeOrigin: true,  // 是否跨域
               secure: false,
-            //   pathRewrite: {
-            //     '^/todo' : ''  // 重写路径
-            //   }
+              pathRewrite: {
+                '^/api' : '/todo'  // 重写路径
+              }
             }
           }
     },
